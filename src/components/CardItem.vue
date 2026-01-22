@@ -121,99 +121,160 @@ const handleDelete = () => {
 
 <style scoped>
 .card-item {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   cursor: grab;
+  position: relative;
+}
+
+.card-item::before {
+  content: '🌸';
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-item:hover::before {
+  opacity: 0.7;
 }
 
 .card-item:active {
   cursor: grabbing;
+  transform: scale(1.02);
 }
 
 .card {
   background: var(--card-background);
-  border-radius: 8px;
+  border-radius: 16px;
   box-shadow: var(--shadow-light);
-  transition: box-shadow 0.2s ease;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--cute-gradient);
+  opacity: 0.8;
 }
 
 .card:hover {
   box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
 }
 
 .card-title {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text-primary);
   line-height: 1.4;
   word-wrap: break-word;
+  margin-bottom: 4px;
+}
+
+.card-title::before {
+  content: '💕 ';
+  font-size: 12px;
+  opacity: 0.7;
 }
 
 .card-description {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-secondary);
   margin-top: 8px;
   line-height: 1.4;
+  font-style: italic;
 }
 
 .card-labels {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 8px;
+  gap: 6px;
+  margin-top: 10px;
 }
 
 .card-label {
   font-size: 11px;
-  padding: 2px 6px;
-  border-radius: 3px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--pastel-pink);
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .card-due-date {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-top: 8px;
-  font-size: 12px;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 13px;
   color: var(--text-secondary);
+  background: var(--pastel-peach);
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.card-due-date::before {
+  content: '⏰ ';
+  font-size: 12px;
 }
 
 .due-date-text {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .card-members {
   display: flex;
   align-items: center;
   gap: -8px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .member-avatar {
-  border: 2px solid var(--card-background);
+  border: 3px solid var(--card-background);
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
 }
 
 .more-members {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: var(--border-color);
-  color: var(--text-secondary);
-  font-size: 10px;
+  background: var(--cute-gradient);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--card-background);
+  border: 3px solid var(--card-background);
+  box-shadow: var(--shadow-light);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .card-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: all 0.3s ease;
+  transform: translateY(5px);
 }
 
 .card:hover .card-actions {
   opacity: 1;
+  transform: translateY(0);
 }
 
 :deep(.van-card__content) {

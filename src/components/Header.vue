@@ -125,23 +125,59 @@ const showAbout = () => {
 
 <style scoped>
 .header {
-  background: var(--primary-color);
+  background: var(--cute-gradient);
+  border-radius: 0 0 20px 20px;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '🌸';
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  opacity: 0.6;
+}
+
+.header::after {
+  content: '🌺';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  opacity: 0.6;
 }
 
 :deep(.van-nav-bar) {
-  background: var(--primary-color);
+  background: transparent;
+  border: none;
 }
 
 :deep(.van-nav-bar__title) {
   color: white;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  letter-spacing: 1px;
 }
 
 :deep(.van-nav-bar__text) {
   color: white;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 :deep(.van-icon) {
   color: white;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
+  transition: transform 0.3s ease;
+}
+
+:deep(.van-icon:hover) {
+  transform: scale(1.2) rotate(10deg);
 }
 </style>

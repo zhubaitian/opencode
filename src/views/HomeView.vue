@@ -107,6 +107,32 @@ const cancelAddList = () => {
   height: 100vh;
   background: var(--background-color);
   padding-top: 46px;
+  position: relative;
+}
+
+.board-view::before {
+  content: '🌈';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite;
+}
+
+.board-view::after {
+  content: '⭐';
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  font-size: 20px;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 .board-container {
@@ -118,8 +144,8 @@ const cancelAddList = () => {
 .lists-container {
   display: flex;
   height: 100%;
-  padding: 16px;
-  gap: 16px;
+  padding: 20px;
+  gap: 20px;
   min-width: min-content;
 }
 
@@ -130,13 +156,25 @@ const cancelAddList = () => {
 
 .add-list-card {
   background: var(--card-background);
-  border-radius: 8px;
-  box-shadow: var(--shadow-light);
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  border: 3px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-list-card::before {
+  content: '✨';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  opacity: 0.6;
 }
 
 .add-list-actions {
   display: flex;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 16px;
 }
 </style>

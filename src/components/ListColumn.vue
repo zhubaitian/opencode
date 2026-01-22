@@ -195,59 +195,111 @@ const handleDeleteList = () => {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.list-column::before {
+  content: '🎀';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  opacity: 0.7;
+  z-index: 10;
 }
 
 .list-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
-  background: var(--card-background);
-  border-radius: 8px 8px 0 0;
-  box-shadow: var(--shadow-light);
+  padding: 12px 16px;
+  background: var(--cute-gradient);
+  border-radius: 20px 20px 0 0;
+  box-shadow: var(--shadow-medium);
+  border: 3px solid var(--border-color);
+  border-bottom: none;
+  position: relative;
+}
+
+.list-header::before {
+  content: '💕';
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 .list-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
   margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  letter-spacing: 1px;
 }
 
 .cards-container {
   flex: 1;
-  padding: 8px;
+  padding: 12px;
   background: var(--card-background);
   overflow-y: auto;
   min-height: 100px;
+  border: 3px solid var(--border-color);
+  border-top: none;
+  border-bottom: none;
 }
 
 .add-card-container {
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .add-card-card {
   background: var(--card-background);
-  border-radius: 8px;
-  box-shadow: var(--shadow-light);
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  border: 3px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-card-card::before {
+  content: '🌟';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  opacity: 0.6;
 }
 
 .add-card-actions {
   display: flex;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 16px;
 }
 
-/* 拖拽样式 */
+/* 可爱拖拽样式 */
 .sortable-ghost {
-  opacity: 0.4;
+  opacity: 0.3;
+  background: var(--pastel-pink);
+  border: 2px dashed var(--primary-color);
+  border-radius: 15px;
 }
 
 .sortable-chosen {
-  transform: rotate(5deg);
+  transform: rotate(8deg) scale(1.05);
+  box-shadow: var(--shadow-heavy);
+  border-radius: 20px;
+  background: var(--pastel-peach);
 }
 
 .sortable-drag {
-  transform: rotate(5deg);
+  transform: rotate(8deg) scale(1.05);
+  box-shadow: var(--shadow-heavy);
+  border-radius: 20px;
+  background: var(--pastel-peach);
+  transition: all 0.3s ease;
 }
 </style>
